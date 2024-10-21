@@ -4,18 +4,12 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float rotationSpeed = 720f;
-    public Camera mainCamera;
 
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        if (mainCamera == null)
-        {
-            mainCamera = Camera.main;
-        }
     }
 
     void Update()
@@ -23,15 +17,7 @@ public class Movement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 cameraForward = mainCamera.transform.forward;
-        Vector3 cameraRight = mainCamera.transform.right;
-
-        cameraForward.y = 0f;
-        cameraRight.y = 0f;
-        cameraForward.Normalize();
-        cameraRight.Normalize();
-
-        Vector3 direction = (cameraForward * vertical + cameraRight * horizontal).normalized;
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)
         {
@@ -44,6 +30,7 @@ public class Movement : MonoBehaviour
         }
     }
 }
+
 
 
 
