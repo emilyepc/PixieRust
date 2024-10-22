@@ -4,6 +4,8 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float rotationSpeed = 720f;
+    public float jumpForce = 5f; 
+    public bool isGrounded = true; 
 
     private Rigidbody rb;
 
@@ -28,8 +30,25 @@ public class Movement : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
             rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
         }
+
+        
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false; 
+        }
+    }
+
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
+
 
 
 
