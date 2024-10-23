@@ -4,8 +4,8 @@ public class Movement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float rotationSpeed = 720f;
-    public float jumpForce = 5f; 
-    public bool isGrounded = true; 
+    public float jumpForce = 5f;
+    public bool isGrounded = true;
 
     private Rigidbody rb;
 
@@ -31,21 +31,30 @@ public class Movement : MonoBehaviour
             rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
         }
 
-        
-        if (Input.GetButtonDown("Jump") && isGrounded)
+
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false; 
         }
+
     }
 
-    
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+
     }
 }
 
