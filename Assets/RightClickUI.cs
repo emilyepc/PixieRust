@@ -18,6 +18,7 @@ public class RightClickUI : MonoBehaviour
         if (Input.GetMouseButtonDown(1)) // Right mouse button
         {
             ToggleButtonVisibility();
+            uiCanvas.enabled = true;
         }
 
         if (isParticleActive)
@@ -30,7 +31,7 @@ public class RightClickUI : MonoBehaviour
             {
                 // Stop the particle system and reset UI
                 particleSystemObject.SetActive(false);
-                uiCanvas.enabled = true;
+                uiCanvas.enabled = false;
 
                 // Reset timer and particle activity state
                 particleTimer = 5.0f;
