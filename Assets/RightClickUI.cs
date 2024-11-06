@@ -62,10 +62,6 @@ public class RightClickUI : MonoBehaviour
         // Hide the button immediately after press
         button.SetActive(false);
     }
-    public bool GetIsParticleActive()
-    {
-        return isParticleActive;
-    }
 }
 
 
