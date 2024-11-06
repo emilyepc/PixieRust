@@ -20,12 +20,13 @@ public class WellLogic : MonoBehaviour
     }
 
     // Trigger event when another collider enters the trigger collider
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         // Check if the player enters the collider and if the particle system is already active
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player entered trigger.");
+            //particlesystem.SetActive(true);
 
             // Checking if particle system is active
             if (particlesystem.activeSelf)
