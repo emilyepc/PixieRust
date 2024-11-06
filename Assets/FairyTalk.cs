@@ -8,15 +8,15 @@ public class FairyTalk : MonoBehaviour
 {
     public UnityEvent enteredTrigger, exitedTrigger;
     private bool isInsideTrigger;
-    public GameObject  FairyTalkPanel, PlayerCapsule, UI, Camera;
+    public GameObject PlayerCapsule, UI, Camera;
     public TMP_Text FairyTalkText;
     private int currentDialogueIndex = 0;
-    private string[] dialogues = { "yadadadad", "yadadaaaaaaaaaaaaaaaaaaa", "" };
+    private string[] dialogues = { "Hellllp!!!!", "Oh you there! I fell in and I cant get out...", "I cant climb up with that metal chain but maybe if there was a way to get this water to rise up...", "Try pressing right click", "" };
 
     // Start is called before the first frame update
     void Start()
     {
-        FairyTalkPanel.SetActive(false);
+        
         PlayerCapsule.SetActive(true);
         UI.SetActive(false);
         Camera.SetActive(false);
@@ -43,7 +43,7 @@ public class FairyTalk : MonoBehaviour
     }
     void EndDialogue()
     {
-        FairyTalkPanel.SetActive(false);
+        
         
         PlayerCapsule.SetActive(true);
         UI.SetActive(false);
@@ -53,7 +53,7 @@ public class FairyTalk : MonoBehaviour
     }
     void StartDialogue()
     {
-        FairyTalkPanel.SetActive(true);
+        
         Camera.SetActive(true);
         
         PlayerCapsule.SetActive(false);
