@@ -55,6 +55,15 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
+        //if (moveSpeed <= 5f)
+      //  {
+            //animator.SetTrigger("Moving");
+       // }
+        //else {
+            //animator.SetTrigger("NotMoving");
+        
+        //}
     }
 
     void OnCollisionStay(Collision collision)
