@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     public float jumpForce = 5f;
     public bool isGrounded = true;
     public AudioSource walking;
+    public Animator animator;
 
     private Rigidbody rb;
 
@@ -14,6 +15,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         walking.Stop(); // Ensure the walking sound is stopped at the start
+        animator = GetComponent<Animator>();
     }
 
     void Update()
