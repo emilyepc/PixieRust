@@ -5,7 +5,12 @@ namespace nickmaltbie.ScrollingShader
     
     public class ConveyerBelt : MonoBehaviour
     {
-        
+        public waterwheel wheel;
+        private Transform startrot;
+        public void Start()
+        {
+            startrot = transform;
+        }
         public enum BeltForceMode
         {
             Push,
@@ -51,21 +56,30 @@ namespace nickmaltbie.ScrollingShader
         
         public void FixedUpdate()
         {
-            if (body != null && beltMode == BeltForceMode.Pull)
+            if (wheel.direction == 1) { transform.rotation=startrot.rotation; }
+            else  { transform.rotation = new Quaternion(startrot.rotation.x, startrot.rotation.y+180, startrot.rotation.z, startrot.rotation.w); }
+            Debug.Log(wheel.on);
+            if (wheel.on)
             {
-                Vector3 movement = velocity * GetDirection() * Time.fixedDeltaTime;
-                transform.position = pos - movement;
-                body.MovePosition(pos);
+                if (body != null && beltMode == BeltForceMode.Pull)
+                {
+                    Vector3 movement = velocity * GetDirection() * Time.fixedDeltaTime;
+                    transform.position = pos - movement;
+                    body.MovePosition(pos);
+                }
             }
         }
 
         
         public void OnCollisionStay(Collision other)
         {
-            if (other.rigidbody != null && !other.rigidbody.isKinematic && beltMode == BeltForceMode.Push)
+            if (wheel.on)
             {
-                Vector3 movement = velocity * GetDirection() * Time.deltaTime;
-                other.rigidbody.MovePosition(other.transform.position + movement);
+                if (other.rigidbody != null && !other.rigidbody.isKinematic && beltMode == BeltForceMode.Push)
+                {
+                    Vector3 movement = velocity * GetDirection() * Time.deltaTime;
+                    other.rigidbody.MovePosition(other.transform.position + movement);
+                }
             }
         }
 
