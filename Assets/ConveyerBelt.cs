@@ -6,10 +6,12 @@ namespace nickmaltbie.ScrollingShader
     public class ConveyerBelt : MonoBehaviour
     {
         public waterwheel wheel;
-        private Transform startrot;
+        
+        private int changedetect;
+
         public void Start()
         {
-            startrot = transform;
+            changedetect = wheel.direction;
         }
         public enum BeltForceMode
         {
@@ -56,9 +58,8 @@ namespace nickmaltbie.ScrollingShader
         
         public void FixedUpdate()
         {
-            if (wheel.direction == 1) { transform.rotation=startrot.rotation; }
-            else  { transform.rotation = new Quaternion(startrot.rotation.x, startrot.rotation.y+180, startrot.rotation.z, startrot.rotation.w); }
-            Debug.Log(wheel.on);
+            if (changedetect != wheel.direction) { transform.Rotate(0, 180, 0); }
+            changedetect = wheel.direction;
             if (wheel.on)
             {
                 if (body != null && beltMode == BeltForceMode.Pull)
