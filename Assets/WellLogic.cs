@@ -9,6 +9,7 @@ public class WellLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         // Initial states
         Waterempty.SetActive(true);
         Waterfull.SetActive(false);
@@ -17,6 +18,7 @@ public class WellLogic : MonoBehaviour
 
         // Debug messages to confirm initialization
         Debug.Log("WellLogic initialized. Particle System set to inactive.");
+
     }
 
     // Trigger event when another collider enters the trigger collider
