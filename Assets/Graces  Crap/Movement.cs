@@ -14,9 +14,9 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        walking.Stop(); // Ensure the walking sound is stopped at the start
+        walking.Stop(); 
 
-        // Find the Animator in child objects
+       
         if (animator == null)
         {
             animator = GetComponentInChildren<Animator>();
