@@ -14,8 +14,9 @@ public class FairyTalk : MonoBehaviour
     private string[] dialogues2 = { "Hellllp!!!!", "Oh! It's you again!", "You have something new on you?", "Maybe you can use it to help me get out of here?", "" };
     private string[] dialogues3 = { "Thank you for your help, kind fae", "Now, every part of me is soaked but I kept this safe", "You might find it useful, try use it like you use the water rune!", "The train station seems to be out of bounds but I'm sure you can find a way in...", "" };
 
-    public bool WaterRuneAcess = false;
-    public bool WellPuzzleStatus = false;
+    public bool waterRuneAcess = false;
+    public bool wellPuzzleStatus = false;
+
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class FairyTalk : MonoBehaviour
         if (isInsideTrigger && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Player pressed E inside the trigger.");
-            Debug.Log($"Current State -> WaterRuneAcess: {WaterRuneAcess}, WellPuzzleStatus: {WellPuzzleStatus}");
+            Debug.Log($"Current State -> WaterRuneAcess: {waterRuneAcess}, WellPuzzleStatus: {wellPuzzleStatus}");
 
             StartDialogue();
 
@@ -59,19 +60,19 @@ public class FairyTalk : MonoBehaviour
 
     string[] GetCurrentDialogue()
     {
-        if (!WaterRuneAcess && !WellPuzzleStatus)
+        if (!waterRuneAcess && !wellPuzzleStatus)
         {
             Debug.Log("Fetching dialogues1: No WaterRuneAccess and No WellPuzzleStatus.");
             return dialogues1;
         }
 
-        if (WaterRuneAcess && !WellPuzzleStatus)
+        if (waterRuneAcess && !wellPuzzleStatus)
         {
             Debug.Log("Fetching dialogues2: WaterRuneAccess but No WellPuzzleStatus.");
             return dialogues2;
         }
 
-        if (WaterRuneAcess && WellPuzzleStatus)
+        if (waterRuneAcess && wellPuzzleStatus)
         {
             Debug.Log("Fetching dialogues3: WaterRuneAccess and WellPuzzleStatus.");
             return dialogues3;

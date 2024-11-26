@@ -5,7 +5,7 @@ using UnityEngine;
 public class WellLogic : MonoBehaviour
 {
     public GameObject Waterempty, Waterfull, UI, particlesystem;
-
+    public FairyTalk script;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +39,8 @@ public class WellLogic : MonoBehaviour
                 Waterempty.SetActive(false);
                 Waterfull.SetActive(true);
                 UI.SetActive(true);
+                script.waterRuneAcess = true;
+                script.wellPuzzleStatus = true;
             }
             else
             {
