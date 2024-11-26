@@ -1,22 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Pushing : MonoBehaviour
+public class PushingObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] private CharacterController CC;
-    private float pushPower = 4;
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    public float pushForce = 10f; // The force applied to the object when pushing.
+
+    private void OnCollisionStay(Collision collision)
     {
-        Rigidbody body = hit.collider.attachedRigidbody;
-        if (body == null || body.isKinematic)
-            return;
-        if (hit.moveDirection.y < -0.3f)
-            return;
-        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        body.velocity = pushDir * pushPower;
-        
+        // Check if the collided object has a Rigidbody and is tagged as Pushable
+        if (collision.rigidbody != null && collision.gameObject.CompareTag("Pushable"))
+        {
+            ApplyPushForce(collision);
+        }
     }
 
+    private void ApplyPushForce(Collision collision)
+    {
+        // Calculate the direction to push the object based on the player's movement
+        Vector3 pushDirection = collision.transform.position - transform.position;
+        pushDirection.y = 0; // Prevent vertical force
+        pushDirection.Normalize();
+
+        // Apply force to the object
+        collision.rigidbody.AddForce(pushDirection * pushForce, ForceMode.Force);
+    }
 }
+

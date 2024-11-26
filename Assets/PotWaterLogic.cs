@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class PotWaterLogic : MonoBehaviour
 {
-    // References to GameObjects
-    public GameObject objectToCheck;         // The GameObject to check if active
-    public GameObject objectToActivate;   // The GameObject to deactivate if the first is active
-    public Collider triggerZone;            // The Collider to check if the player is inside
+    public GameObject objectToCheck; // The GameObject to check if active
+    public GameObject objectToActivate; // The GameObject to activate
+    public Collider triggerZone; // The Collider to check if the player is inside
 
-    private bool isPlayerInside = false;    // Tracks if the player is inside the collider
+    private bool isPlayerInside = false; // Tracks if the player is inside the collider
+    private bool isActivated = false; // Tracks if the object has been activated
 
     void Start()
     {
@@ -23,24 +21,17 @@ public class PotWaterLogic : MonoBehaviour
 
     void Update()
     {
-        // Ensure all necessary references are assigned
         if (objectToCheck != null && objectToActivate != null && triggerZone != null)
         {
-            // Check if the first GameObject is active and the player is inside the trigger zone
-            if (objectToCheck.activeSelf && isPlayerInside)
+            // Activate the object once the condition is met, if not already activated
+            if (objectToCheck.activeSelf && isPlayerInside && !isActivated)
             {
-                // Deactivate the second GameObject
                 objectToActivate.SetActive(true);
-            }
-            else
-            {
-                // Optionally, reactivate the second GameObject if needed
-                objectToActivate.SetActive(false);
+                isActivated = true; // Mark as activated
             }
         }
     }
 
-    // Detect when the player enters the trigger zone
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -49,13 +40,12 @@ public class PotWaterLogic : MonoBehaviour
         }
     }
 
-    // Detect when the player exits the trigger zone
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerInside = false;
-
         }
     }
 }
+
