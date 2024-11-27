@@ -5,7 +5,14 @@ namespace nickmaltbie.ScrollingShader
     
     public class ConveyerBelt : MonoBehaviour
     {
+        public waterwheel wheel;
         
+        private int changedetect;
+
+        public void Start()
+        {
+            changedetect = wheel.direction;
+        }
         public enum BeltForceMode
         {
             Push,
@@ -51,21 +58,29 @@ namespace nickmaltbie.ScrollingShader
         
         public void FixedUpdate()
         {
-            if (body != null && beltMode == BeltForceMode.Pull)
+            if (changedetect != wheel.direction) { transform.Rotate(0, 180, 0); }
+            changedetect = wheel.direction;
+            if (wheel.on)
             {
-                Vector3 movement = velocity * GetDirection() * Time.fixedDeltaTime;
-                transform.position = pos - movement;
-                body.MovePosition(pos);
+                if (body != null && beltMode == BeltForceMode.Pull)
+                {
+                    Vector3 movement = velocity * GetDirection() * Time.fixedDeltaTime;
+                    transform.position = pos - movement;
+                    body.MovePosition(pos);
+                }
             }
         }
 
         
         public void OnCollisionStay(Collision other)
         {
-            if (other.rigidbody != null && !other.rigidbody.isKinematic && beltMode == BeltForceMode.Push)
+            if (wheel.on)
             {
-                Vector3 movement = velocity * GetDirection() * Time.deltaTime;
-                other.rigidbody.MovePosition(other.transform.position + movement);
+                if (other.rigidbody != null && !other.rigidbody.isKinematic && beltMode == BeltForceMode.Push)
+                {
+                    Vector3 movement = velocity * GetDirection() * Time.deltaTime;
+                    other.rigidbody.MovePosition(other.transform.position + movement);
+                }
             }
         }
 
