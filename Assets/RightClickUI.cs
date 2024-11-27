@@ -10,15 +10,15 @@ public class RightClickUI : MonoBehaviour
     public Canvas uiCanvas;                     // Assign the main UI canvas in the inspector
     public Animator animator;                   // Assign the Animator component in the inspector
 
-    private bool isButtonVisible = false;
+    public bool isButtonVisible = false;
     private float particleTimer = 5.0f;         // 5-second timer for the particle system
-    private bool isParticleActive = false;
+    public  bool isParticleActive = false;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(1)) // Right mouse button
         {
-            ToggleButtonVisibility();
+            ToggleButtonOn();
             uiCanvas.enabled = true;
         }
 
@@ -47,9 +47,15 @@ public class RightClickUI : MonoBehaviour
         }
     }
 
-    void ToggleButtonVisibility()
+    void ToggleButtonOn()
     {
-        isButtonVisible = !isButtonVisible;
+        isButtonVisible = true;
+        button.SetActive(isButtonVisible);
+    }
+
+    void ToggleButtonOff()
+    {
+        isButtonVisible = false;
         button.SetActive(isButtonVisible);
     }
 

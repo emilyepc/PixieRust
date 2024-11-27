@@ -72,11 +72,11 @@ public class FairyTalk : MonoBehaviour
             return dialogues2;
         }
 
-        if (waterRuneAcess && wellPuzzleStatus)
-        {
-            Debug.Log("Fetching dialogues3: WaterRuneAccess and WellPuzzleStatus.");
-            return dialogues3;
-        }
+        //if (waterRuneAcess && wellPuzzleStatus)
+        //{
+         //   Debug.Log("Fetching dialogues3: WaterRuneAccess and WellPuzzleStatus.");
+         //   return dialogues3;
+       // }
 
         Debug.LogWarning("Unexpected state: Returning empty dialogue set.");
         return new string[0]; // Fallback in case conditions fail
