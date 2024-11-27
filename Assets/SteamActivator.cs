@@ -26,7 +26,7 @@ public class SteamActivator : MonoBehaviour
     private bool IsConditionMet()
     {
         // Check if the monitored object's Y position matches
-        bool isYPositionMatch = Mathf.Approximately(monitoredObject.transform.position.y, 1.886875f);
+        bool isYPositionMatch = Mathf.Approximately(monitoredObject.transform.position.y, 1.74432f);
 
         // Check if both condition objects are active
         bool areConditionObjectsActive = conditionObject1.activeSelf && conditionObject2.activeSelf;
