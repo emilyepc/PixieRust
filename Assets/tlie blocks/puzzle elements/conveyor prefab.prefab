@@ -67,7 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51c29ed07b78a34a90dec41ceea1387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 1
+  wheel: {fileID: 0}
+  velocity: -4
   direction: 2
 --- !u!1 &1196920997531235373
 GameObject:
