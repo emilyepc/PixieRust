@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fbaa08be401aa3d46b095342a2b0d2ff
+guid: 3b12965f931b1554bbd782a51641e9e1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -37,14 +37,14 @@ ModelImporter:
       takeName: metarig|metarigAction
       internalID: -887982601649841707
       firstFrame: 0
-      lastFrame: 48
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

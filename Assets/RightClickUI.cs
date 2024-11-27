@@ -8,6 +8,7 @@ public class RightClickUI : MonoBehaviour
     public GameObject button;                   // Assign the button in the inspector
     public GameObject particleSystemObject;     // Assign the Particle System GameObject in the inspector
     public Canvas uiCanvas;                     // Assign the main UI canvas in the inspector
+    public Animator animator;                   // Assign the Animator component in the inspector
 
     private bool isButtonVisible = false;
     private float particleTimer = 5.0f;         // 5-second timer for the particle system
@@ -36,6 +37,12 @@ public class RightClickUI : MonoBehaviour
                 // Reset timer and particle activity state
                 particleTimer = 5.0f;
                 isParticleActive = false;
+
+                // Reset the animation state
+                if (animator != null)
+                {
+                    animator.SetBool("IsThrowing", false); // Stop the animation
+                }
             }
         }
     }
@@ -50,6 +57,13 @@ public class RightClickUI : MonoBehaviour
     {
         Debug.Log("Button pressed!");
 
+        // Set the IsThrowing parameter in the animator to true
+        if (animator != null)
+        {
+            animator.SetBool("IsThrowing", true); // Start the throwing animation
+            Debug.Log("Animation triggered!");
+        }
+
         if (particleSystemObject != null)
         {
             // Start the particle system and disable the main UI canvas
@@ -62,11 +76,10 @@ public class RightClickUI : MonoBehaviour
         // Hide the button immediately after press
         button.SetActive(false);
     }
+
     public bool GetIsParticleActive()
     {
         return isParticleActive;
     }
 }
-
-
 

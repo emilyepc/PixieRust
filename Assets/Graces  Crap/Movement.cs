@@ -7,47 +7,64 @@ public class Movement : MonoBehaviour
     public float jumpForce = 5f;
     public bool isGrounded = true;
     public AudioSource walking;
-    public Animator animator;
+    public Animator animator; // Reference to the animator
 
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        walking.Stop(); // Ensure the walking sound is stopped at the start
-        animator = GetComponent<Animator>();
+        walking.Stop(); 
+
+       
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
+
+        if (animator == null)
+        {
+            Debug.LogError("No Animator found on the Player or its children.");
+        }
     }
 
     void Update()
     {
-        // Get movement input
+        // Movement input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // Create a normalized movement direction
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        // Handle movement if there's input
         if (direction.magnitude >= 0.1f)
         {
-            // Move the character
+            // Movement and rotation logic
             Vector3 moveDir = direction * moveSpeed * Time.deltaTime;
             rb.MovePosition(rb.position + moveDir);
 
-            // Rotate the character towards the movement direction
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
             rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
 
-            // Play walking sound if the character is moving
             if (!walking.isPlaying)
                 walking.Play();
+
+            // Set walking animation
+            if (animator != null)
+            {
+                animator.SetBool("isWalking", true);
+            }
         }
         else
         {
-            // Stop walking sound if not moving
             if (walking.isPlaying)
                 walking.Stop();
+
+            // Stop walking animation
+            if (animator != null)
+            {
+                animator.SetBool("isWalking", false);
+            }
         }
 
         // Handle jumping
@@ -55,20 +72,10 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-
-        //if (moveSpeed <= 5f)
-      //  {
-            //animator.SetTrigger("Moving");
-       // }
-        //else {
-            //animator.SetTrigger("NotMoving");
-        
-        //}
     }
 
     void OnCollisionStay(Collision collision)
     {
-        // Check if the player is grounded using collision with the "Ground" tag
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -77,16 +84,10 @@ public class Movement : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
-        // Set isGrounded to false if the player exits the ground
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
         }
     }
 }
-
-
-
-
-
 
