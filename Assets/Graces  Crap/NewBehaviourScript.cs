@@ -20,7 +20,7 @@ public class NewBehaviourScript : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, desiredPosition, followSpeed * Time.deltaTime);
 
             // Keep the camera looking at the player
-            transform.LookAt(player);
+            //transform.LookAt(player);
         }
     }
 }

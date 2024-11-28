@@ -10,10 +10,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - box
   - Water
   - UI
-  - 
+  - player
   - 
   - 
   - 
