@@ -4,7 +4,7 @@ public class FlowaInteraction : MonoBehaviour
 {
     // Reference to the 3D Text object
     public GameObject textObject;
-
+    public bool onetime=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +38,7 @@ public class FlowaInteraction : MonoBehaviour
             if (textObject != null)
             {
                 textObject.SetActive(false);
+                if (onetime) { gameObject.SetActive(false);}
             }
         }
     }
