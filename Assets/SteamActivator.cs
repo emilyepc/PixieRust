@@ -7,6 +7,7 @@ public class SteamActivator : MonoBehaviour
 {
     [Header("References")]
     public GameObject targetObject; // The object to activate
+    public GameObject gate;
     public GameObject monitoredObject; // The object to check Y position
     public GameObject conditionObject1; // The first object to check if active
     public GameObject conditionObject2; // The second object to check if active
@@ -16,10 +17,12 @@ public class SteamActivator : MonoBehaviour
         if (IsConditionMet())
         {
             targetObject.SetActive(true);
+            gate.SetActive(false);
         }
         else
         {
             targetObject.SetActive(false);
+            gate.SetActive(true);
         }
     }
 
