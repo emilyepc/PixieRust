@@ -5,16 +5,14 @@ using UnityEngine.Events;
 using TMPro;
 using Unity.UI;
 
-
-
-public class FairyTalk : MonoBehaviour
+public class FairyTalk3 : MonoBehaviour
 {
     public UnityEvent enteredTrigger, exitedTrigger;
     private bool isInsideTrigger;
     public GameObject PlayerCapsule, UI, Camera;
     public TMP_Text FairyTalkText;
     private int currentDialogueIndex = 0;
-    private string[] dialogues = { "Hellllp!!!!", "Oh you there! I fell in and I cant get out...", "I cant climb up with that metal chain but maybe if there was a way to get this water to rise up...", "Try pressing right click", "" };
+    private string[] dialogues = { "Thank you for your help, kind fae", "now, every part of me is soaked but i kept this safe", "you might find it useful, try use it like you use the water rune! Except its fire.", "The train station seems to be out of bounds but i'm sure you can find a way in...", "" };
 
     // Start is called before the first frame update
     void Start()
