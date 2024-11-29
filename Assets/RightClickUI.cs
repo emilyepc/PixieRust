@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class RightClickUI : MonoBehaviour
 {
     public GameObject button;                   // Assign the button in the inspector
     public GameObject particleSystemObject;     // Assign the Particle System GameObject in the inspector
-    public Canvas uiCanvas;                     // Assign the main UI canvas in the inspector
+    //public Canvas uiCanvas;                     // Assign the main UI canvas in the inspector
     public Animator animator;                   // Assign the Animator component in the inspector
 
     public bool isButtonVisible = false;
@@ -20,7 +19,7 @@ public class RightClickUI : MonoBehaviour
         if (Input.GetMouseButtonDown(1)) // Right mouse button
         {
             ToggleButtonOn();
-            uiCanvas.enabled = true;
+            //uiCanvas.enabled = true;
         }
 
         if (isParticleActive)
@@ -33,7 +32,7 @@ public class RightClickUI : MonoBehaviour
             {
                 // Stop the particle system and reset UI
                 particleSystemObject.SetActive(false);
-                uiCanvas.enabled = false;
+                //uiCanvas.enabled = false;
 
                 // Reset timer and particle activity state
                 particleTimer = 5.0f;
@@ -75,7 +74,7 @@ public class RightClickUI : MonoBehaviour
         {
             // Start the particle system and disable the main UI canvas
             particleSystemObject.SetActive(true);
-            uiCanvas.enabled = false;
+            //uiCanvas.enabled = false;
             isParticleActive = true;
             Debug.Log("Particle System activated!");
         }

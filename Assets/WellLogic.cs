@@ -13,7 +13,7 @@ public class WellLogic : MonoBehaviour
         // Initial states
         Waterempty.SetActive(true);
         Waterfull.SetActive(false);
-        //UI.SetActive(false);
+        UI.SetActive(false);
         particlesystem.SetActive(false);
 
         // Debug messages to confirm initialization
@@ -38,8 +38,9 @@ public class WellLogic : MonoBehaviour
                 // Activate full well, deactivate empty well, and show UI
                 Waterempty.SetActive(false);
                 Waterfull.SetActive(true);
-                //UI.SetActive(true);
-                
+                UI.SetActive(true);
+                script.waterRuneAcess = true;
+                script.wellPuzzleStatus = true;
             }
             else
             {
@@ -57,7 +58,7 @@ public class WellLogic : MonoBehaviour
             Debug.Log("Player exited trigger.");
 
             // Hide UI, if needed
-            //UI.SetActive(false);
+            UI.SetActive(false);
         }
     }
 }
