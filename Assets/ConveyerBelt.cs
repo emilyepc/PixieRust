@@ -9,6 +9,11 @@ namespace nickmaltbie.ScrollingShader
         
         private int changedetect;
 
+        public GameObject conveyormodel; //for animating conveyor
+
+        private Material conveyormov;//this is to animate the conveyor
+        
+
         public void Start()
         {
             changedetect = wheel.direction;
@@ -68,6 +73,9 @@ namespace nickmaltbie.ScrollingShader
                     transform.position = pos - movement;
                     body.MovePosition(pos);
                 }
+                conveyormov=conveyormodel.GetComponent<Material>();
+                conveyormov.mainTextureOffset = new Vector2(velocity / 10, 0);
+
             }
         }
 

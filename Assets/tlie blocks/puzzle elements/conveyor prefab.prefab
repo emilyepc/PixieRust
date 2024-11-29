@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheel: {fileID: 0}
+  conveyormodel: {fileID: 1196920997531235373}
   velocity: -4
   direction: 2
 --- !u!1 &1196920997531235373
