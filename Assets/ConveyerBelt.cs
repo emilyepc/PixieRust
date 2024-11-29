@@ -73,8 +73,8 @@ namespace nickmaltbie.ScrollingShader
                     transform.position = pos - movement;
                     body.MovePosition(pos);
                 }
-                conveyormov=conveyormodel.GetComponent<Material>();
-                conveyormov.mainTextureOffset = new Vector2(velocity / 10, 0);
+                //conveyormov=conveyormodel.GetComponent<Material>(); cant find material???
+                //conveyormov.mainTextureOffset = new Vector2(velocity / 10, 0);
 
             }
         }
