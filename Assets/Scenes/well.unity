@@ -59823,6 +59823,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3838021778616457407, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f41b545ed542484c9651944e5b71495, type: 2}
+    - target: {fileID: 4500252029104930694, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4256685f5f99acb4d80fb61393c3ea17, type: 2}
     - target: {fileID: 4661811085581453314, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
       propertyPath: m_margin.z
       value: 5.8968067
@@ -59831,6 +59839,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5018139930213847961, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4256685f5f99acb4d80fb61393c3ea17, type: 2}
     - target: {fileID: 5524409363078762400, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.41
@@ -69972,6 +69984,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3838021778616457407, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f41b545ed542484c9651944e5b71495, type: 2}
+    - target: {fileID: 4500252029104930694, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4256685f5f99acb4d80fb61393c3ea17, type: 2}
     - target: {fileID: 4661811085581453314, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
       propertyPath: m_margin.z
       value: 5.8968067
@@ -69980,6 +70000,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5018139930213847961, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4256685f5f99acb4d80fb61393c3ea17, type: 2}
     - target: {fileID: 5524409363078762400, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.41
@@ -258808,6 +258832,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3838021778616457407, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f41b545ed542484c9651944e5b71495, type: 2}
+    - target: {fileID: 4500252029104930694, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4256685f5f99acb4d80fb61393c3ea17, type: 2}
     - target: {fileID: 4661811085581453314, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
       propertyPath: m_margin.z
       value: 5.8968067
@@ -258816,6 +258848,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5018139930213847961, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4256685f5f99acb4d80fb61393c3ea17, type: 2}
     - target: {fileID: 5524409363078762400, guid: c032c7f78ea393149accddf27e1cf06a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.41
