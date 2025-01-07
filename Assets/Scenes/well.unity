@@ -187293,7 +187293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'hold e '
+  m_text: click e
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f96efdb29d4cf4e46bf47e8f3adda6b8, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -273596,7 +273596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'hold e '
+  m_text: click e
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f96efdb29d4cf4e46bf47e8f3adda6b8, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -303086,7 +303086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'hold e '
+  m_text: click e
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f96efdb29d4cf4e46bf47e8f3adda6b8, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -318010,7 +318010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3137135196945254702, guid: 8eb4f6ab6a904234faaec31b3ee39470, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 301.11
+      value: 300.53
       objectReference: {fileID: 0}
     - target: {fileID: 3137135196945254702, guid: 8eb4f6ab6a904234faaec31b3ee39470, type: 3}
       propertyPath: m_LocalPosition.z
@@ -383474,7 +383474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1871224416
 Transform:
   m_ObjectHideFlags: 0
