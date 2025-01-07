@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
-using Unity.UI;
+//using Unity.UI;
 
 public class FairyTalk : MonoBehaviour
 {
