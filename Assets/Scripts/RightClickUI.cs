@@ -12,7 +12,7 @@ public class RightClickUI : MonoBehaviour
     public Animator animator;                   // Assign the Animator component in the inspector
 
     public bool isButtonVisible = false;
-    private float particleTimer = 5.0f;         // 5-second timer for the particle system
+    float particleTimer = 3.0f;         // 5-second timer for the particle system
     public  bool isParticleActive = false;
 
     void Update()
