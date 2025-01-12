@@ -208430,6 +208430,7 @@ MonoBehaviour:
   animator: {fileID: 893324778}
   isButtonVisible: 0
   isParticleActive: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!114 &1120239872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208498,6 +208499,7 @@ MonoBehaviour:
   animator: {fileID: 893324778}
   isButtonVisible: 0
   isParticleActive: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!114 &1120239876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208505,7 +208507,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120239869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fb2556c871c001408541f537b651d32, type: 3}
   m_Name: 
