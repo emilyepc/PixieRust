@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class RightClickUI : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class RightClickUI : MonoBehaviour
     public bool isButtonVisible = false;
     float particleTimer = 3.0f;         // 5-second timer for the particle system
     public  bool isParticleActive = false;
+    public Vector3 direction;
+
 
     void Update()
     {
@@ -22,6 +26,10 @@ public class RightClickUI : MonoBehaviour
             ToggleButtonOn();
             uiCanvas.enabled = true;
         }
+
+        Vector3 direction = InputHandler.GetMovementDirection();
+
+
 
         if (isParticleActive)
         {
@@ -65,10 +73,18 @@ public class RightClickUI : MonoBehaviour
         Debug.Log("Button pressed!");
 
         // Set the IsThrowing parameter in the animator to true
-        if (animator != null)
+        //if (animator != null)
+        //{
+          //  animator.SetBool("IsThrowing", true); // Start the throwing animation
+          //  Debug.Log("Animation triggered!");
+        //}
+
+        // If player is using particle system and moving at the same time
+        if (direction.magnitude >= 0.1f && animator != null)
         {
-            animator.SetBool("IsThrowing", true); // Start the throwing animation
-            Debug.Log("Animation triggered!");
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsThrowing", false);
+            Debug.Log("moving throw working");
         }
 
         if (particleSystemObject != null)

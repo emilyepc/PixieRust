@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     public Animator animator; // Reference to the animator
 
     private Rigidbody rb;
-
+   
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,10 +31,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // Movement input
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 direction = InputHandler.GetMovementDirection();
 
         if (direction.magnitude >= 0.1f)
         {
@@ -88,6 +85,17 @@ public class Movement : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+}
+
+public static class InputHandler
+{
+    public static Vector3 GetMovementDirection()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        return new Vector3(horizontal, 0f, vertical).normalized;
     }
 }
 
