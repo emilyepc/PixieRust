@@ -9,7 +9,6 @@ public class RailCartController : MonoBehaviour
     public GameObject RailGate;
     public GameObject StaticCart;
     public GameObject MovingCart;
-    public GameObject text;
 
     void Update()
     {
@@ -19,13 +18,11 @@ public class RailCartController : MonoBehaviour
 
             StaticCart.SetActive(true);
             MovingCart.SetActive(false);
-            text.SetActive(false);
         }
         else
         {
             StaticCart.SetActive(false);
             MovingCart.SetActive(true);
-            text.SetActive(true);
         }
     }
 }
