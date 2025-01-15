@@ -7,6 +7,7 @@ public class ConditionalAction: MonoBehaviour
     public GameObject particleSystemObject;     // Assign the Particle System GameObject in the inspector
     public GameObject uiObject;                 // Assign the UI GameObject (can be any GameObject) in the inspector
     public Animator animator;                   // Assign the Animator component in the inspector
+    public GameObject otherUI;
     public GameObject activationObject;         // The object that determines whether actions happen
 
     [Header("State Variables")]
@@ -86,6 +87,7 @@ public class ConditionalAction: MonoBehaviour
                 // Start the particle system and disable the UI object
                 particleSystemObject.SetActive(true);
                 uiObject.SetActive(false);
+                otherUI.SetActive(false);
                 isParticleActive = true;
                 Debug.Log("Particle System activated!");
             }
