@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class ConditionalAction : MonoBehaviour
+public class ConditionalAction: MonoBehaviour
 {
     [Header("References")]
     public GameObject button;                   // Assign the button in the inspector
     public GameObject particleSystemObject;     // Assign the Particle System GameObject in the inspector
-    public Canvas uiCanvas;                     // Assign the main UI canvas in the inspector
+    public GameObject uiObject;                 // Assign the UI GameObject (can be any GameObject) in the inspector
     public Animator animator;                   // Assign the Animator component in the inspector
     public GameObject activationObject;         // The object that determines whether actions happen
 
@@ -23,7 +23,7 @@ public class ConditionalAction : MonoBehaviour
             if (Input.GetMouseButtonDown(1)) // Right mouse button
             {
                 ToggleButtonOn();
-                uiCanvas.enabled = true;
+                uiObject.SetActive(true);
             }
 
             Vector3 direction = InputHandler.GetMovementDirection();
@@ -38,7 +38,7 @@ public class ConditionalAction : MonoBehaviour
                 {
                     // Stop the particle system and reset UI
                     particleSystemObject.SetActive(false);
-                    uiCanvas.enabled = false;
+                    uiObject.SetActive(false);
 
                     // Reset timer and particle activity state
                     particleTimer = 5.0f;
@@ -83,9 +83,9 @@ public class ConditionalAction : MonoBehaviour
 
             if (particleSystemObject != null)
             {
-                // Start the particle system and disable the main UI canvas
+                // Start the particle system and disable the UI object
                 particleSystemObject.SetActive(true);
-                uiCanvas.enabled = false;
+                uiObject.SetActive(false);
                 isParticleActive = true;
                 Debug.Log("Particle System activated!");
             }
@@ -100,3 +100,4 @@ public class ConditionalAction : MonoBehaviour
         return isParticleActive;
     }
 }
+

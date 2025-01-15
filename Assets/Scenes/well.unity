@@ -208953,6 +208953,7 @@ GameObject:
   - component: {fileID: 1120239872}
   - component: {fileID: 1120239871}
   - component: {fileID: 1120239875}
+  - component: {fileID: 1120239879}
   - component: {fileID: 1120239876}
   - component: {fileID: 1120239878}
   - component: {fileID: 1120239877}
@@ -208977,7 +208978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 5510963}
   particleSystemObject: {fileID: 1572160312}
-  uiCanvas: {fileID: 796390810}
+  uiObject: {fileID: 5510963}
   animator: {fileID: 893324778}
   activationObject: {fileID: 837643335}
   isButtonVisible: 0
@@ -209040,14 +209041,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120239869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 475d423819fb5044b825d114c61e4e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 175689231}
   particleSystemObject: {fileID: 733146099}
-  uiCanvas: {fileID: 796390810}
+  uiObject: {fileID: 0}
   animator: {fileID: 893324778}
   activationObject: {fileID: 837643335}
   isButtonVisible: 0
@@ -209100,6 +209101,26 @@ MonoBehaviour:
   objectToCheck: {fileID: 837643335}
   objectToActivate: {fileID: 171908367}
   objectToDeactivate: {fileID: 703560171}
+--- !u!114 &1120239879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120239869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a49285a929bbbd42af4ed2df82d9b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 175689231}
+  particleSystemObject: {fileID: 733146099}
+  uiObject: {fileID: 175689231}
+  animator: {fileID: 893324778}
+  activationObject: {fileID: 2026477760}
+  isButtonVisible: 0
+  isParticleActive: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1001 &1120721076
 PrefabInstance:
   m_ObjectHideFlags: 0
