@@ -1,56 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEditor.Experimental.GraphView;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
-public class RightClickUI : MonoBehaviour
+public class ConditionalAction : MonoBehaviour
 {
+    [Header("References")]
     public GameObject button;                   // Assign the button in the inspector
     public GameObject particleSystemObject;     // Assign the Particle System GameObject in the inspector
     public Canvas uiCanvas;                     // Assign the main UI canvas in the inspector
     public Animator animator;                   // Assign the Animator component in the inspector
+    public GameObject activationObject;         // The object that determines whether actions happen
 
+    [Header("State Variables")]
     public bool isButtonVisible = false;
-    float particleTimer = 3.0f;         // 5-second timer for the particle system
-    public  bool isParticleActive = false;
+    float particleTimer = 3.0f;                 // 5-second timer for the particle system
+    public bool isParticleActive = false;
     public Vector3 direction;
-
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)) // Right mouse button
+        // Only execute logic if the activationObject is inactive
+        if (activationObject != null && !activationObject.activeSelf)
         {
-            ToggleButtonOn();
-            uiCanvas.enabled = true;
-        }
-
-        Vector3 direction = InputHandler.GetMovementDirection();
-
-
-
-        if (isParticleActive)
-        {
-            // Countdown the timer
-            particleTimer -= Time.deltaTime;
-
-            // Check if 5 seconds have passed
-            if (particleTimer <= 0)
+            if (Input.GetMouseButtonDown(1)) // Right mouse button
             {
-                // Stop the particle system and reset UI
-                particleSystemObject.SetActive(false);
-                uiCanvas.enabled = false;
+                ToggleButtonOn();
+                uiCanvas.enabled = true;
+            }
 
-                // Reset timer and particle activity state
-                particleTimer = 5.0f;
-                isParticleActive = false;
+            Vector3 direction = InputHandler.GetMovementDirection();
 
-                // Reset the animation state
-                if (animator != null)
+            if (isParticleActive)
+            {
+                // Countdown the timer
+                particleTimer -= Time.deltaTime;
+
+                // Check if 5 seconds have passed
+                if (particleTimer <= 0)
                 {
-                    animator.SetBool("IsThrowing", false); // Stop the animation
+                    // Stop the particle system and reset UI
+                    particleSystemObject.SetActive(false);
+                    uiCanvas.enabled = false;
+
+                    // Reset timer and particle activity state
+                    particleTimer = 5.0f;
+                    isParticleActive = false;
+
+                    // Reset the animation state
+                    if (animator != null)
+                    {
+                        animator.SetBool("IsThrowing", false); // Stop the animation
+                    }
                 }
             }
         }
@@ -70,34 +68,31 @@ public class RightClickUI : MonoBehaviour
 
     public void OnButtonPress()
     {
-        Debug.Log("Button pressed!");
-
-        // Set the IsThrowing parameter in the animator to true
-        //if (animator != null)
-        //{
-          //  animator.SetBool("IsThrowing", true); // Start the throwing animation
-          //  Debug.Log("Animation triggered!");
-        //}
-
-        // If player is using particle system and moving at the same time
-        if (direction.magnitude >= 0.1f && animator != null)
+        // Only allow button press actions if the activationObject is inactive
+        if (activationObject != null && !activationObject.activeSelf)
         {
-            animator.SetBool("IsWalking", false);
-            animator.SetBool("IsThrowing", false);
-            Debug.Log("moving throw working");
-        }
+            Debug.Log("Button pressed!");
 
-        if (particleSystemObject != null)
-        {
-            // Start the particle system and disable the main UI canvas
-            particleSystemObject.SetActive(true);
-            uiCanvas.enabled = false;
-            isParticleActive = true;
-            Debug.Log("Particle System activated!");
-        }
+            // If player is using particle system and moving at the same time
+            if (direction.magnitude >= 0.1f && animator != null)
+            {
+                animator.SetBool("IsWalking", false);
+                animator.SetBool("IsThrowing", false);
+                Debug.Log("Moving throw working");
+            }
 
-        // Hide the button immediately after press
-        button.SetActive(false);
+            if (particleSystemObject != null)
+            {
+                // Start the particle system and disable the main UI canvas
+                particleSystemObject.SetActive(true);
+                uiCanvas.enabled = false;
+                isParticleActive = true;
+                Debug.Log("Particle System activated!");
+            }
+
+            // Hide the button immediately after press
+            button.SetActive(false);
+        }
     }
 
     public bool GetIsParticleActive()
@@ -105,4 +100,3 @@ public class RightClickUI : MonoBehaviour
         return isParticleActive;
     }
 }
-

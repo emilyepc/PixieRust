@@ -208979,6 +208979,7 @@ MonoBehaviour:
   particleSystemObject: {fileID: 1572160312}
   uiCanvas: {fileID: 796390810}
   animator: {fileID: 893324778}
+  activationObject: {fileID: 837643335}
   isButtonVisible: 0
   isParticleActive: 0
   direction: {x: 0, y: 0, z: 0}
@@ -209048,6 +209049,7 @@ MonoBehaviour:
   particleSystemObject: {fileID: 733146099}
   uiCanvas: {fileID: 796390810}
   animator: {fileID: 893324778}
+  activationObject: {fileID: 837643335}
   isButtonVisible: 0
   isParticleActive: 0
   direction: {x: 0, y: 0, z: 0}
@@ -214603,7 +214605,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 312559962952835311, guid: 853ce4f13686fca45aaf392bbc89d6b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.17
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 312559962952835311, guid: 853ce4f13686fca45aaf392bbc89d6b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -214611,7 +214613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 312559962952835311, guid: 853ce4f13686fca45aaf392bbc89d6b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -46.21
+      value: 66.3
       objectReference: {fileID: 0}
     - target: {fileID: 312559962952835311, guid: 853ce4f13686fca45aaf392bbc89d6b9, type: 3}
       propertyPath: m_LocalRotation.w
